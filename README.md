@@ -48,6 +48,61 @@ python -m http.server 4173
 http://localhost:4173/demo/
 ```
 
+## 部署到 Vercel
+
+这个仓库是静态资源项目，可以直接部署成一个公开 demo。
+
+仓库里已经提供了 `vercel.json`，会把根路径 `/` 直接指向 `demo/index.html`，所以别人打开你的 Vercel 域名时会直接看到演示页。
+
+### 方式一：通过 GitHub 导入
+
+1. 把当前仓库推到 GitHub
+2. 打开 Vercel 并选择 `Add New Project`
+3. 导入这个 GitHub 仓库
+4. Framework Preset 选择 `Other`
+5. 保持以下设置：
+
+```text
+Build Command: npm run build
+Output Directory: .
+Install Command: npm install
+```
+
+6. 点击部署
+
+部署完成后：
+
+- `https://你的项目域名.vercel.app/` 会直接进入 demo 首页
+- `https://你的项目域名.vercel.app/demo/` 也可以直接访问演示页
+
+### 方式二：本地用 Vercel CLI 部署
+
+先安装依赖并构建：
+
+```bash
+npm install
+npm run build
+```
+
+然后执行：
+
+```bash
+npm i -g vercel
+vercel
+```
+
+首次部署时按提示选择当前目录即可。若要发正式版可再执行：
+
+```bash
+vercel --prod
+```
+
+### 部署时需要注意
+
+- `dist/` 需要由 `npm run build` 生成，Vercel 会自动执行这个构建命令
+- `assets/`、`snippets/`、`demo/` 都要保留在仓库根目录
+- 如果以后你把演示页从 `demo/index.html` 改到别的位置，记得同步更新 `vercel.json`
+
 ## 集成到任意网页
 
 1. 复制 `assets/`、`dist/wishdelPet.js`、`snippets/pet-controls.css`
@@ -110,5 +165,7 @@ git push -u origin main
 - 这是从现有博客桌宠实现中抽离出来的独立版本
 
 ## 素材提醒
+
+素材来源：<https://prts.wiki/w/%E7%BB%B4%E4%BB%80%E6%88%B4%E5%B0%94>
 
 代码仓库可以公开，但动作素材是否适合公开再分发，建议你自行确认对应版权和授权范围。
