@@ -2,8 +2,6 @@
 
 一个可召唤、可拖拽、可追鼠标的维什戴尔网页桌宠。
 
-这个目录已经按独立 GitHub 仓库整理好了，你可以直接把整个 `wishdel-web-pet` 文件夹移动到别处再上传。
-
 ## 功能
 
 - 点击按钮召唤 / 收起桌宠
@@ -48,12 +46,6 @@ python -m http.server 4173
 http://localhost:4173/demo/
 ```
 
-## 部署到 Vercel
-
-这个仓库是静态资源项目，可以直接部署成一个公开 demo。
-
-仓库里已经提供了 `vercel.json`，会把根路径 `/` 直接指向 `demo/index.html`，所以别人打开你的 Vercel 域名时会直接看到演示页。
-
 ### 方式一：通过 GitHub 导入
 
 1. 把当前仓库推到 GitHub
@@ -74,28 +66,6 @@ Install Command: npm install
 
 - `https://你的项目域名.vercel.app/` 会直接进入 demo 首页
 - `https://你的项目域名.vercel.app/demo/` 也可以直接访问演示页
-
-### 方式二：本地用 Vercel CLI 部署
-
-先安装依赖并构建：
-
-```bash
-npm install
-npm run build
-```
-
-然后执行：
-
-```bash
-npm i -g vercel
-vercel
-```
-
-首次部署时按提示选择当前目录即可。若要发正式版可再执行：
-
-```bash
-vercel --prod
-```
 
 ### 部署时需要注意
 
@@ -145,19 +115,6 @@ vercel --prod
 
 如果你愿意直接改源码，也可以使用 `src/wishdelPet.ts` 自行编译。
 
-## 发布到 GitHub
-
-在这个文件夹里执行：
-
-```bash
-git init
-git add .
-git commit -m "feat: initial wishdel web pet"
-git branch -M main
-git remote add origin https://github.com/你的用户名/wishdel-web-pet.git
-git push -u origin main
-```
-
 ## 说明
 
 - 脚本默认会从 `dist/wishdelPet.js` 的相对位置寻找 `../assets/`
@@ -167,5 +124,3 @@ git push -u origin main
 ## 素材提醒
 
 素材来源：<https://prts.wiki/w/%E7%BB%B4%E4%BB%80%E6%88%B4%E5%B0%94>
-
-代码仓库可以公开，但动作素材是否适合公开再分发，建议你自行确认对应版权和授权范围。
