@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Wishdel Web Pet Demo</title>
+    <link rel="stylesheet" href="../snippets/pet-controls.css" />
+    <style>
+      :root {
+        --accent: rgb(244 63 94);
+        --background: rgb(9 12 20);
+        --foreground: rgb(240 244 255);
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        min-height: 100vh;
+        color: var(--foreground);
+        font-family: "Segoe UI", "Microsoft YaHei UI", sans-serif;
+        background:
+          radial-gradient(circle at top, rgb(61 78 115 / 0.45), transparent 38%),
+          radial-gradient(circle at right bottom, rgb(244 63 94 / 0.18), transparent 28%),
+          linear-gradient(180deg, rgb(10 14 24), rgb(16 22 35));
+      }
+
+      .demo-shell {
+        max-width: 980px;
+        margin: 0 auto;
+        padding: 72px 24px 120px;
+      }
+
+      .demo-card {
+        border: 1px solid rgb(255 255 255 / 0.12);
+        border-radius: 28px;
+        padding: 32px;
+        background: rgb(10 14 24 / 0.72);
+        box-shadow: 0 28px 80px rgb(0 0 0 / 0.32);
+        backdrop-filter: blur(18px);
+      }
+
+      h1 {
+        margin: 0 0 12px;
+        font-size: clamp(2.2rem, 6vw, 4.6rem);
+        line-height: 0.95;
+      }
+
+      p {
+        margin: 0;
+        max-width: 44rem;
+        color: rgb(225 232 245 / 0.82);
+        font-size: 1rem;
+        line-height: 1.75;
+      }
+
+      .demo-grid {
+        display: grid;
+        gap: 16px;
+        margin-top: 28px;
+      }
+
+      .demo-tile {
+        border-radius: 20px;
+        padding: 18px 20px;
+        background: rgb(255 255 255 / 0.06);
+        color: rgb(236 239 247 / 0.9);
+      }
+
+      .demo-tile strong {
+        display: block;
+        margin-bottom: 6px;
+        font-size: 0.95rem;
+      }
+
+      @media (min-width: 760px) {
+        .demo-grid {
+          grid-template-columns: repeat(3, minmax(0, 1fr));
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main class="demo-shell">
+      <section class="demo-card">
+        <h1>Wishdel Web Pet</h1>
+        <p>
+          这是独立仓库演示页。左下角可以召唤桌宠，切到追鼠模式后，角色会主动朝鼠标方向跑并实时翻面。
+        </p>
+
+        <div class="demo-grid">
+          <article class="demo-tile">
+            <strong>召唤 / 收起</strong>
+            按钮会同步切换状态，并记住你上次是否开启桌宠。
+          </article>
+          <article class="demo-tile">
+            <strong>自由巡逻 / 追鼠</strong>
+            可在随机巡逻和追鼠标之间快速切换。
+          </article>
+          <article class="demo-tile">
+            <strong>拖拽交互</strong>
+            可以直接拖到新位置，单击互动，双击触发特殊动作。
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <div class="wishdel-pet-controls">
+      <button
+        id="wishdel-pet-toggle"
+        type="button"
+        class="wishdel-pet-button"
+        aria-controls="wishdel-web-pet-root"
+        aria-pressed="false"
+      >
+        <span aria-hidden="true" class="wishdel-pet-dot"></span>
+        <span data-pet-label>召唤桌宠</span>
+      </button>
+
+      <button
+        id="wishdel-pet-mode"
+        type="button"
+        class="wishdel-pet-button wishdel-pet-button-secondary"
+        aria-pressed="false"
+      >
+        <span data-pet-mode-label>追鼠模式</span>
+      </button>
+    </div>
+
+    <script>
+      window.__wishdelPetAssetBase = "../assets/";
+    </script>
+    <script type="module" src="../dist/wishdelPet.js"></script>
+  </body>
+</html>

@@ -1,0 +1,62 @@
+.wishdel-pet-controls {
+  position: fixed;
+  left: 16px;
+  bottom: 24px;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.wishdel-pet-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  border: 1px solid rgb(255 255 255 / 0.16);
+  border-radius: 999px;
+  padding: 10px 14px;
+  background: rgb(13 18 29 / 0.82);
+  color: rgb(241 245 249);
+  font: 500 14px/1 "Segoe UI", "Microsoft YaHei UI", sans-serif;
+  backdrop-filter: blur(16px);
+  box-shadow: 0 18px 40px rgb(0 0 0 / 0.2);
+  cursor: pointer;
+  transition:
+    transform 160ms ease,
+    border-color 160ms ease,
+    color 160ms ease,
+    opacity 160ms ease;
+}
+
+.wishdel-pet-button:hover {
+  transform: translateY(-1px);
+  border-color: rgb(244 63 94 / 0.55);
+  color: rgb(251 113 133);
+}
+
+.wishdel-pet-button[aria-pressed="true"] {
+  border-color: rgb(244 63 94 / 0.45);
+}
+
+.wishdel-pet-button-secondary {
+  display: none;
+}
+
+.wishdel-pet-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 999px;
+  background: rgb(244 63 94);
+}
+
+@media (max-width: 720px) {
+  .wishdel-pet-controls {
+    left: 12px;
+    bottom: 16px;
+  }
+
+  .wishdel-pet-button {
+    padding: 9px 12px;
+    font-size: 13px;
+  }
+}
